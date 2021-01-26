@@ -38,4 +38,6 @@ const mapStateToProps = (state) => {
   return { items: state.items }
 }
 
+// hello
+
 export default connect(mapStateToProps)(App);
