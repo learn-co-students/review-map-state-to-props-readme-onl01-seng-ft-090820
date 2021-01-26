@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-
-
+ 
+ 
 class App extends Component {
-
+ 
   handleOnClickItems() {
     this.props.dispatch({
       type: 'GET_COUNT_OF_ITEMS',
     });
   }
-
+ 
   handleOnClickUsers() {
     this.props.dispatch({
       type: 'GET_COUNT_OF_USERS',
-    });
+    })
   }
-
+ 
   render() {
     // debugger;
     return (
@@ -27,15 +27,20 @@ class App extends Component {
           <button onClick={() => this.handleOnClickUsers()}>
             Click to change user count
           </button>
-          <p>{this.props.items.length}</p>
+          <p> {this.props.items.length}</p>
       </div>
     );
   }
 }
-
+ 
 const mapStateToProps = (state) => {
-  debugger;
+  // debugger;
   return { items: state.items }
 }
-
+ 
 export default connect(mapStateToProps)(App);
+
+/* export default connect( state => ({ items: state.items }) )(App);
+An alternative way to write this export default statement
+Only use if you don't have comlicated amounts of state you're mapping to props. 
+Default should be to stick with the original set up. */
